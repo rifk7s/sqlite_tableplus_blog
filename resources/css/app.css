@@ -1,0 +1,171 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* CSS Variables */
+:root {
+    --color-bg-primary: #0a0a0a;
+    --color-bg-secondary: rgba(255, 255, 255, 0.02);
+    --color-border: rgba(255, 255, 255, 0.08);
+    --color-text-primary: #e4e4e7;
+    --color-text-secondary: #71717a;
+    --color-text-muted: #52525b;
+    --color-success: #22c55e;
+    --color-tooltip-bg: rgba(255, 255, 255, 0.95);
+    --color-tooltip-text: #0a0a0a;
+}
+
+/* Custom Styles */
+body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+}
+
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    background-color: var(--color-bg-secondary);
+    transform: translateY(-2px);
+}
+
+.nav-dock {
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 -20px 80px -20px rgba(255, 255, 255, 0.12) inset;
+}
+
+.nav-dock-gradient {
+    background: linear-gradient(to top, rgba(10, 10, 10, 0.8), transparent);
+    -webkit-mask-image: linear-gradient(to top, black, transparent);
+    mask-image: linear-gradient(to top, black, transparent);
+}
+
+.blur-fade {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(20px);
+    animation: blurFadeIn 0.8s ease-out forwards;
+}
+
+@keyframes blurFadeIn {
+    from {
+        opacity: 0;
+        filter: blur(10px);
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+
+/* Animation Delay Classes */
+.blur-fade-delay-1 { animation-delay: 0.1s; }
+.blur-fade-delay-2 { animation-delay: 0.2s; }
+.blur-fade-delay-4 { animation-delay: 0.4s; }
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--color-success);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Tooltip/Accordion styles */
+.nav-item {
+    position: relative;
+}
+
+.nav-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-secondary);
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 12px;
+    border: 1px solid var(--color-border);
+}
+
+.nav-item:hover .nav-tooltip {
+    opacity: 1;
+    background: var(--color-tooltip-bg);
+    color: var(--color-tooltip-text);
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Button Styles */
+.btn-primary {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Card Styles */
+.card {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+}
+
+/* Reusable Text Colors */
+.text-secondary {
+    color: var(--color-text-secondary);
+}
+
+.text-muted {
+    color: var(--color-text-muted);
+}
+
+/* Reusable Border */
+.border-subtle-2 {
+    border: 2px solid var(--color-border);
+}
+
+/* Back Link */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--color-text-primary);
+}
