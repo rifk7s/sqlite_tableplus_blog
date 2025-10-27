@@ -20,10 +20,10 @@
         </div>
     </article>
 
-    <div class="mt-12 pt-8 border-t border-border">
+    {{-- <div class="mt-12 pt-8 border-t border-border">
         <a href="{{ route('blog.index') }}" class="text-blue-400 hover:text-blue-300 transition-colors">
             ← Back to all posts
         </a>
-    </div>
+    </div> --}}
 </div>
 @endsection
